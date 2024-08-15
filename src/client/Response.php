@@ -166,7 +166,13 @@ class Response
      */
     public function getData()
     {
-        return $this->getBodyAsJsonObject()->{'data'};
+        $body = $this->getBodyAsJsonObject();
+
+        if(property_exists($body, 'data')) {
+            return $body->{'data'};
+        }
+
+        return null;
     }
 
     /**
@@ -174,7 +180,13 @@ class Response
      */
     public function getMeta(): ?object
     {
-        return $this->getBodyAsJsonObject()->{'meta'};
+        $body = $this->getBodyAsJsonObject();
+
+        if(property_exists($body, 'meta')) {
+            return $body->{'meta'};
+        }
+
+        return null;
     }
 
     /**
@@ -182,7 +194,13 @@ class Response
      */
     public function getDictionary(): ?object
     {
-        return $this->getBodyAsJsonObject()->{'dictionaries'};
+        $body = $this->getBodyAsJsonObject();
+
+        if(property_exists($body, 'dictionaries')) {
+            return $body->{'dictionaries'};
+        }
+
+        return null;
     }
 
     /**

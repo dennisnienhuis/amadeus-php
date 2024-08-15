@@ -41,6 +41,7 @@ class Resource
                 $resource->__set($key, $value);
             }
             $resource->dictionary = $response->getDictionary();
+            $resource->meta = $response->getMeta();
             $resource->response = $response; // plan A
             $resources[] = $resource;
         }
