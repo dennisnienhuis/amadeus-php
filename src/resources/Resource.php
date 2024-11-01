@@ -42,6 +42,7 @@ class Resource
             }
             $resource->dictionary = $response->getDictionary();
             $resource->meta = $response->getMeta();
+            $resource->include = $response->getInclude();
             $resource->response = $response; // plan A
             $resources[] = $resource;
         }

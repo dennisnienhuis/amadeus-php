@@ -178,6 +178,20 @@ class Response
     /**
      * @return object|null
      */
+    public function getInclude(): ?object
+    {
+        $body = $this->getBodyAsJsonObject();
+
+        if(property_exists($body, 'include')) {
+            return $body->{'include'};
+        }
+
+        return null;
+    }
+
+    /**
+     * @return object|null
+     */
     public function getMeta(): ?object
     {
         $body = $this->getBodyAsJsonObject();
