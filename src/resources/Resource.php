@@ -22,6 +22,9 @@ class Resource
         foreach ($data as $key => $value) {
             $resource->__set($key, $value);
         }
+        $resource->dictionary = $response->getDictionary();
+        $resource->meta = $response->getMeta();
+        $resource->include = $response->getIncluded();
         $resource->response = $response;
         return $resource;
     }
@@ -42,7 +45,7 @@ class Resource
             }
             $resource->dictionary = $response->getDictionary();
             $resource->meta = $response->getMeta();
-            $resource->include = $response->getInclude();
+            $resource->include = $response->getIncluded();
             $resource->response = $response; // plan A
             $resources[] = $resource;
         }
